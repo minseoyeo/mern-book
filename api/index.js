@@ -24,8 +24,10 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-app.listen(2000, () => {
-  console.log('Server is running on port 2000');
+const port = process.env.PORT || 4000;
+
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 app.use('/api/auth', authRoutes);
